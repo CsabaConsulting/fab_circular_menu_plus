@@ -1,22 +1,29 @@
 # FAB Circular Menu 
-[![Pub](https://img.shields.io/pub/v/fab_circular_menu.svg)](https://pub.dev/packages/fab_circular_menu)
-[![Pull Requests are welcome](https://img.shields.io/badge/license-MIT-blue)](https://github.com/marianocordoba/fab-circular-menu/blob/master/LICENSE)
-[![Codemagic build status](https://api.codemagic.io/apps/5cf6ad31434563000a9534d5/5cf6ad31434563000a9534d4/status_badge.svg)](https://codemagic.io/apps/5cf6ad31434563000a9534d5/5cf6ad31434563000a9534d4/latest_build)
+[![Pub package](https://img.shields.io/pub/v/fab_circular_menu_plus.svg)](https://pub.dev/packages/fab_circular_menu_plus)
+[![License](https://img.shields.io/github/license/CsabaConsulting/fab_circular_menu_plus)](https://github.com/CsabaConsulting/fab_circular_menu_plus/blob/master/LICENSE)
 ![Null safety](https://img.shields.io/badge/null%20safety-true-brightgreen)
+![Platform](https://img.shields.io/badge/platform-web%20%7C%20android%20%7C%20ios-ff69b4)
 
 A Flutter package to create a nice circular menu using a Floating Action Button.
 
-Inspired by [Mayur Kshirsagar](https://dribbble.com/mayurksgr)'s great [FAB Microinteraction](https://dribbble.com/shots/4354100-Daily-UI-Challenge-Day-75-FAB-Microinteraction) design.
+Originally inspired by [Mayur Kshirsagar](https://dribbble.com/mayurksgr)'s great
+[FAB Microinteraction](https://dribbble.com/shots/4354100-Daily-UI-Challenge-Day-75-FAB-Microinteraction) design.
+It is implemented as a [Flutter plugin by Mariano Cordova](https://pub.dev/packages/fab_circular_menu)
+([source code](https://github.com/marianocordoba/fab-circular-menu/)). This plugin is the continuation
+of the discontinued original plugin. I merged some of my bug fixes and made some changes to my liking.
+
+I forked this plugin out of necessity and I have only a very limited time for maintenance, so PRs
+are highly welcome if any change is desired.
 
 ![Showcase](https://i.imgur.com/ErrNnAw.gif)
 
 ## Installation
 
-Just add `fab_circular_menu` to your [pubspec.yml](https://flutter.io/using-packages/) file
+Just add `fab_circular_menu_plus` to your [pubspec.yml](https://flutter.io/using-packages/) file
 
 ```yml
 dependencies:
-  fab_circular_menu: ^1.0.0
+  fab_circular_menu_plus: ^0.0.1
 ```
 
 ## Example
@@ -28,7 +35,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Placeholder(),
-        floatingActionButton: FabCircularMenu(
+        floatingActionButton: FabCircularMenuPlus(
           children: <Widget>[
             IconButton(icon: Icon(Icons.home), onPressed: () {
               print('Home');
@@ -48,7 +55,7 @@ You can check for a more complete example in the [example](https://github.com/ma
 
 ## Customize
 
-You can customize the widget appareance using the following properties:
+You can customize the widget appearance using the following properties:
 
 | Property  | Description | Default |
 |----------|-------------|---------|
@@ -71,11 +78,12 @@ You can customize the widget appareance using the following properties:
 
 ## Handling the menu programmatically
 
-It is possible to handle the menu programatically by using a [key](https://api.flutter.dev/flutter/foundation/Key-class.html). Just create a key and set it in the `key` property of the `FabCircularMenu`, then use the key to get the current state and open, close or check the status of the menu.
+It is possible to handle the menu programmatically by using a [key](https://api.flutter.dev/flutter/foundation/Key-class.html).
+Just create a key and set it in the `key` property of the `FabCircularMenuPlus`, then use the key to get the current state and open, close or check the status of the menu.
 
 ```dart
 class MyApp extends StatelessWidget {
-  final GlobalKey<FabCircularMenuState> fabKey = GlobalKey();
+  final GlobalKey<FabCircularMenuPlusState> fabKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +99,7 @@ class MyApp extends StatelessWidget {
           },
           child: Text('Toggle menu')
         ),
-        floatingActionButton: FabCircularMenu(
+        floatingActionButton: FabCircularMenuPlus(
           key: fabKey,
           children: <Widget>[
             // ...
@@ -105,4 +113,4 @@ class MyApp extends StatelessWidget {
 
 ## Contributing
 
-I will be very happy if you contribute to this project, please submit a PR 😁
+I will be very happy if you contribute to this project, feel free to submit a PR.
