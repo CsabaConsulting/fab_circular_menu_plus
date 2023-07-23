@@ -49,7 +49,7 @@ class FabCircularMenuPlus extends StatefulWidget {
       this.animationCurve = Curves.easeInOutCirc,
       this.onDisplayChange,
       required this.children})
-      : assert(children.length >= 1),
+      : assert(children.isNotEmpty),
         super(key: key);
 
   @override

@@ -8,6 +8,8 @@ void main() {
 class MyApp extends StatelessWidget {
   final GlobalKey<FabCircularMenuPlusState> fabKey = GlobalKey();
 
+  MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
             ringWidth: 150.0,
             fabSize: 64.0,
             fabElevation: 8.0,
-            fabIconBorder: CircleBorder(),
+            fabIconBorder: const CircleBorder(),
             // Also can use specific color based on wether
             // the menu is open or not:
             // fabOpenColor: Colors.white
@@ -66,25 +68,25 @@ class MyApp extends StatelessWidget {
                 onPressed: () {
                   _showSnackBar(context, "You pressed 1");
                 },
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 padding: const EdgeInsets.all(24.0),
-                child: Icon(Icons.looks_one, color: Colors.white),
+                child: const Icon(Icons.looks_one, color: Colors.white),
               ),
               RawMaterialButton(
                 onPressed: () {
                   _showSnackBar(context, "You pressed 2");
                 },
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 padding: const EdgeInsets.all(24.0),
-                child: Icon(Icons.looks_two, color: Colors.white),
+                child: const Icon(Icons.looks_two, color: Colors.white),
               ),
               RawMaterialButton(
                 onPressed: () {
                   _showSnackBar(context, "You pressed 3");
                 },
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 padding: const EdgeInsets.all(24.0),
-                child: Icon(Icons.looks_3, color: Colors.white),
+                child: const Icon(Icons.looks_3, color: Colors.white),
               ),
               RawMaterialButton(
                 onPressed: () {
@@ -92,9 +94,9 @@ class MyApp extends StatelessWidget {
                       "You pressed 4. This one closes the menu on tap");
                   fabKey.currentState?.close();
                 },
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 padding: const EdgeInsets.all(24.0),
-                child: Icon(Icons.looks_4, color: Colors.white),
+                child: const Icon(Icons.looks_4, color: Colors.white),
               )
             ],
           ),

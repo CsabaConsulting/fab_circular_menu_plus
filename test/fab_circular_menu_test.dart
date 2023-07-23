@@ -9,8 +9,8 @@ void main() {
       home: Scaffold(
         floatingActionButton: FabCircularMenuPlus(
           alignment: Alignment.bottomCenter,
-          animationDuration: Duration(),
-          children: <Widget>[Icon(Icons.add), Icon(Icons.add)],
+          animationDuration: const Duration(),
+          children: const <Widget>[Icon(Icons.add), Icon(Icons.add)],
         ),
       ),
     );
@@ -39,11 +39,11 @@ void main() {
         floatingActionButton: FabCircularMenuPlus(
           key: fab,
           alignment: Alignment.centerRight,
-          animationDuration: Duration(),
+          animationDuration: const Duration(),
           onDisplayChange: (val) {
             isOpen = val;
           },
-          children: <Widget>[Placeholder(), Placeholder()],
+          children: const <Widget>[Placeholder(), Placeholder()],
         ),
       ),
     );
