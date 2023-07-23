@@ -10,7 +10,9 @@ class FabCircularMenuPlus extends StatefulWidget {
   final Alignment alignment;
   final Color? ringColor;
   final double? ringDiameter;
+  final double ringDiameterLimitFactor;
   final double? ringWidth;
+  final double ringWidthLimitFactor;
   final double fabSize;
   final double fabElevation;
   final Color? fabColor;
@@ -30,7 +32,9 @@ class FabCircularMenuPlus extends StatefulWidget {
       this.alignment = Alignment.bottomRight,
       this.ringColor,
       this.ringDiameter,
+      this.ringDiameterLimitFactor = 1.5,
       this.ringWidth,
+      this.ringWidthLimitFactor = 0.2,
       this.fabSize = 64.0,
       this.fabElevation = 8.0,
       this.fabColor,
@@ -251,9 +255,10 @@ class FabCircularMenuPlusState extends State<FabCircularMenuPlus>
     _fabIconBorder = widget.fabIconBorder ?? const CircleBorder();
     _screenWidth = MediaQuery.of(context).size.width;
     _screenHeight = MediaQuery.of(context).size.height;
-    _ringDiameter =
-        widget.ringDiameter ?? min(_screenWidth, _screenHeight) * 1.25;
-    _ringWidth = widget.ringWidth ?? _ringDiameter! * 0.3;
+    _ringDiameter = widget.ringDiameter ??
+        min(_screenWidth, _screenHeight) * widget.ringDiameterLimitFactor;
+    _ringWidth =
+        widget.ringWidth ?? _ringDiameter! * widget.ringWidthLimitFactor;
     _marginH = (widget.fabMargin.right + widget.fabMargin.left) / 2;
     _marginV = (widget.fabMargin.top + widget.fabMargin.bottom) / 2;
     _directionX = widget.alignment.x == 0 ? 1 : 1 * widget.alignment.x.sign;

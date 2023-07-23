@@ -4,3 +4,5 @@
 - Fork [fab_circular_menu](https://pub.dev/packages/fab_circular_menu)
 - Upgrade dependencies
 - Brush up code
+- Semantic changes (for example handles orientation change)
+- Explicit ringDiameterLimitFactor and ringWidthLimitFactor parameters
