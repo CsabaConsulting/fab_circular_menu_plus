@@ -138,38 +138,36 @@ class FabCircularMenuPlusState extends State<FabCircularMenuPlus>
       _calculateProps();
     }
 
-    return Container(
-      margin: widget.fabMargin,
-      // Removes the default FAB margin
-      transform: Matrix4.translationValues(
-        16.0 * _directionX,
-        16.0 * _directionY,
-        0.0,
-      ),
-      child: Stack(
-        alignment: widget.alignment,
-        children: <Widget>[
-          // Ring
-          OverflowBox(
-            maxWidth: _ringDiameter,
-            maxHeight: _ringDiameter,
-            child: Transform(
-              transform:
-                  Matrix4.translationValues(_translationX, _translationY, 0.0)
-                    ..scale(_scaleAnimation.value),
-              alignment: FractionalOffset.center,
-              child: Container(
-                width: _ringDiameter,
-                height: _ringDiameter,
-                child: CustomPaint(
-                  painter: _RingPainter(width: _ringWidth, color: _ringColor),
-                  child: _scaleAnimation.value == 1.0
-                      ? Transform.rotate(
-                          angle: (2 * pi) *
-                              _rotateAnimation.value *
-                              _directionX *
-                              _directionY,
-                          child: Container(
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return Stack(
+          alignment: widget.alignment,
+          children: <Widget>[
+            // Ring
+            OverflowBox(
+              maxWidth: _ringDiameter,
+              maxHeight: _ringDiameter,
+              child: Transform(
+                transform: Matrix4.translationValues(
+                  _translationX,
+                  _translationY,
+                  0.0,
+                )..scale(_scaleAnimation.value),
+                alignment: FractionalOffset.center,
+                child: SizedBox(
+                  width: _ringDiameter,
+                  height: _ringDiameter,
+                  child: CustomPaint(
+                    painter: _RingPainter(
+                      width: _ringWidth,
+                      color: _ringColor,
+                    ),
+                    child: _scaleAnimation.value == 1.0
+                        ? Transform.rotate(
+                            angle: (2 * pi) *
+                                _rotateAnimation.value *
+                                _directionX *
+                                _directionY,
                             child: Stack(
                               alignment: Alignment.center,
                               children: widget.children
@@ -179,42 +177,42 @@ class FabCircularMenuPlusState extends State<FabCircularMenuPlus>
                                   .values
                                   .toList(),
                             ),
-                          ),
-                        )
-                      : Container(),
+                          )
+                        : Container(),
+                  ),
                 ),
               ),
             ),
-          ),
 
-          // FAB
-          Container(
-            width: widget.fabSize,
-            height: widget.fabSize,
-            child: RawMaterialButton(
-              fillColor: _colorAnimation!.value,
-              shape: _fabIconBorder,
-              elevation: widget.fabElevation,
-              onPressed: () {
-                if (_isAnimating) return;
+            // FAB
+            Container(
+              width: widget.fabSize,
+              height: widget.fabSize,
+              margin: widget.fabMargin,
+              child: RawMaterialButton(
+                fillColor: _colorAnimation!.value,
+                shape: _fabIconBorder,
+                elevation: widget.fabElevation,
+                onPressed: () {
+                  if (_isAnimating) return;
 
-                if (_isOpen) {
-                  close();
-                } else {
-                  open();
-                }
-              },
-              child: Center(
-                child: widget.fabChild == null
-                    ? (_scaleAnimation.value == 1.0
-                        ? widget.fabCloseIcon
-                        : widget.fabOpenIcon)
-                    : widget.fabChild,
+                  if (_isOpen) {
+                    close();
+                  } else {
+                    open();
+                  }
+                },
+                child: Center(
+                  child: widget.fabChild ??
+                      (_scaleAnimation.value == 1.0
+                          ? widget.fabCloseIcon
+                          : widget.fabOpenIcon),
+                ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        );
+      },
     );
   }
 
@@ -250,7 +248,7 @@ class FabCircularMenuPlusState extends State<FabCircularMenuPlus>
     _fabColor = widget.fabColor ?? Theme.of(context).primaryColor;
     _fabOpenColor = widget.fabOpenColor ?? _fabColor;
     _fabCloseColor = widget.fabCloseColor ?? _fabColor;
-    _fabIconBorder = widget.fabIconBorder ?? CircleBorder();
+    _fabIconBorder = widget.fabIconBorder ?? const CircleBorder();
     _screenWidth = MediaQuery.of(context).size.width;
     _screenHeight = MediaQuery.of(context).size.height;
     _ringDiameter =
