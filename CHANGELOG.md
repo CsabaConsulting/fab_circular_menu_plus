@@ -6,3 +6,4 @@
 - Brush up code
 - Semantic changes (for example handles orientation change)
 - Explicit ringDiameterLimitFactor and ringWidthLimitFactor parameters
+- Introducing Analyzer and Linter and fixing reported issue
