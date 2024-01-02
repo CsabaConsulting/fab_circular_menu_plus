@@ -5,26 +5,49 @@ import 'package:vector_math/vector_math.dart' as vector;
 
 typedef DisplayChange = void Function(bool isOpen);
 
+/// Widget providing the circular FAB menu
+/// both the invoke button and the circular menu
 class FabCircularMenuPlus extends StatefulWidget {
+  /// List of the menu items in the circular menu
   final List<Widget> children;
+  /// Alignment of the menu invoke button
+  /// and also the ring of the circular menu items
   final Alignment alignment;
+  /// Color of the circular menu items' ring background
   final Color? ringColor;
+  /// Diameter of the circular menu items' ring
   final double? ringDiameter;
+  /// Limit factor of the circular menu items' ring diameter
   final double ringDiameterLimitFactor;
+  /// Width of the circular menu items' ring
   final double? ringWidth;
+  /// Limit factor of the circular menu items' ring width
   final double ringWidthLimitFactor;
+  /// Size of the FAB button
   final double fabSize;
+  /// Elevation of the FAB button
   final double fabElevation;
+  /// Color of the FAB button
   final Color? fabColor;
+  /// Color of the FAB button when opening
   final Color? fabOpenColor;
+  /// Color of the FAB button when closing
   final Color? fabCloseColor;
+  /// Widget child of the FAB button (optional, for complete customization)
   final Widget? fabChild;
+  /// Open icon of the FAB button
   final Widget fabOpenIcon;
+  /// Close icon of the FAB button
   final Widget fabCloseIcon;
+  /// Border shape of the FAB button icon
   final ShapeBorder? fabIconBorder;
+  /// Margins of the FAB button
   final EdgeInsets fabMargin;
+  /// FAB open / close animation duration
   final Duration animationDuration;
+  /// FAB open / close animation curve
   final Curve animationCurve;
+  /// Display change callback of FAB menu open / close
   final DisplayChange? onDisplayChange;
 
   FabCircularMenuPlus(
