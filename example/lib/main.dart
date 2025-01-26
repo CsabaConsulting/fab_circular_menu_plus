@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
                 }
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white),
+                backgroundColor: WidgetStateProperty.all(Colors.white),
               ),
               child: Text('Toggle menu programmatically',
                   style: TextStyle(color: primaryColor)),
