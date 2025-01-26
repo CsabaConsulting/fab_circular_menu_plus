@@ -12,3 +12,7 @@
 
 - Adding code comments (partially the goal is to increase pub score)
 - Increase package versions
+
+# [0.0.3] - 01/25/2025
+
+- Increase package versions
