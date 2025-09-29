@@ -20,4 +20,4 @@
 # [0.0.4] - 09/28/2025
 
 - Fix source deprecation to increase pub points to 160 / 160
-  (https://github.com/CsabaConsulting/listview_utils_plus/issues/4).
+  (https://github.com/CsabaConsulting/fab_circular_menu_plus/issues/5).
