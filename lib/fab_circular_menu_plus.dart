@@ -198,7 +198,12 @@ class FabCircularMenuPlusState extends State<FabCircularMenuPlus>
                   _translationX,
                   _translationY,
                   0.0,
-                )..scale(_scaleAnimation.value),
+                )..scaleByDouble(
+                    _scaleAnimation.value,
+                    _scaleAnimation.value,
+                    _scaleAnimation.value,
+                    1.0,
+                  ),
                 alignment: FractionalOffset.center,
                 child: SizedBox(
                   width: _ringDiameter,
